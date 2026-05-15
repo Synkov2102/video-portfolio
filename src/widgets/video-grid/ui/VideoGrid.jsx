@@ -115,14 +115,16 @@ export function VideoGrid({ videos: items }) {
             className={cn(styles.dialogContent, fullBleedModal && styles.dialogContentFull)}
           >
               <div className={cn(styles.playerWrap, fullBleedModal && styles.playerWrapFull)}>
-                <button
-                  type="button"
-                  onClick={handleClose}
-                  aria-label="Закрыть"
-                  className={styles.close}
-                >
-                  <CloseIcon className={styles.closeIcon} />
-                </button>
+                <div className={cn(styles.modalBar, fullBleedModal && styles.modalBarFull)}>
+                  <button
+                    type="button"
+                    onClick={handleClose}
+                    aria-label="Закрыть"
+                    className={styles.close}
+                  >
+                    <CloseIcon className={styles.closeIcon} />
+                  </button>
+                </div>
                 <VideoPlayer
                   key={active.id}
                   loadSrc={active.loadSrc}

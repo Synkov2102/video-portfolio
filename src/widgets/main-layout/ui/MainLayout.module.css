@@ -42,17 +42,42 @@
 }
 
 .logo {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
   color: var(--color-text);
   text-decoration: none;
+}
+
+.logoImg {
+  display: block;
+  flex-shrink: 0;
+  height: 32px;
+  width: auto;
+  max-width: 48px;
+  object-fit: contain;
+}
+
+.logoText {
   letter-spacing: 0.14em;
   font-size: 0.65rem;
   font-weight: 600;
   text-transform: uppercase;
+  line-height: 1.2;
 }
 
 @media (min-width: 600px) {
   .logo {
+    gap: 8px;
+  }
+
+  .logoImg {
+    height: 36px;
+    max-width: 52px;
+  }
+
+  .logoText {
     font-size: 0.7rem;
   }
 }

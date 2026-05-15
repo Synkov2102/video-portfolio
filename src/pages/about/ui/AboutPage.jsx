@@ -1,43 +1,14 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import aboutPhotoUrl from '@/assets/i.webp'
 import { cardReveal, heroItem, heroStagger } from '@/shared/lib/motionPresets'
 import styles from './AboutPage.module.css'
-
-const blocks = [
-  {
-    id: 'atmosphere',
-    body: (
-      <>
-        Во время съёмки я создаю спокойную и лёгкую атмосферу, где вы можете просто быть рядом друг с другом,
-        проживать свой день и наслаждаться моментом.
-      </>
-    ),
-  },
-  {
-    id: 'gear',
-    body: (
-      <>
-        Снимаю как на iPhone, так и на профессиональную камеру — всё зависит от ваших пожеланий, формата съёмки и
-        бюджета.
-      </>
-    ),
-    variant: 'gear',
-  },
-  {
-    id: 'style',
-    body: (
-      <>
-        Каждая история уникальна, и для меня важно подобрать именно тот стиль, который передаст настроение вашего дня.
-      </>
-    ),
-  },
-]
 
 export function AboutPage() {
   const prefersReducedMotion = useReducedMotion()
 
   return (
-    <div className={styles.page}>
+    <motion.div className={styles.page}>
       <motion.header
         className={styles.hero}
         variants={heroStagger(prefersReducedMotion)}
@@ -64,41 +35,28 @@ export function AboutPage() {
         </p>
       </motion.section>
 
-      <div className={styles.flow}>
-        {blocks.map((block, index) => {
-          if (block.variant === 'gear') {
-            return (
-              <motion.section
-                key={block.id}
-                className={styles.gear}
-                aria-label="Техника"
-                {...cardReveal(prefersReducedMotion, index + 1)}
-              >
-                <div className={styles.gearLabels} aria-hidden="true">
-                  <span className={styles.gearPill}>iPhone</span>
-                  <span className={styles.gearPlus}>+</span>
-                  <span className={styles.gearPill}>Камера</span>
-                </div>
-                <p className={styles.gearText}>{block.body}</p>
-              </motion.section>
-            )
-          }
-          return (
-            <motion.section key={block.id} className={styles.block} {...cardReveal(prefersReducedMotion, index + 1)}>
-              <p className={styles.prose}>{block.body}</p>
-            </motion.section>
-          )
-        })}
+      <motion.figure
+        className={styles.photo}
+        aria-label="Фото"
+        {...cardReveal(prefersReducedMotion, 1)}
+      >
+        <img
+          src={aboutPhotoUrl}
+          alt=""
+          className={styles.photoImg}
+          loading="lazy"
+          decoding="async"
+        />
+      </motion.figure>
 
-        <motion.section className={styles.closing} {...cardReveal(prefersReducedMotion, blocks.length + 1)}>
-          <p className={styles.closingText}>
-            Моя задача — сохранить те мгновения, которые спустя годы снова заставят вас почувствовать всё то же
-            волнение, тепло и любовь.
-          </p>
-        </motion.section>
-      </div>
+      <motion.section className={styles.closing} {...cardReveal(prefersReducedMotion, 2)}>
+        <p className={styles.closingText}>
+          Моя задача — сохранить те мгновения, которые спустя годы снова заставят вас почувствовать всё то же
+          волнение, тепло и любовь.
+        </p>
+      </motion.section>
 
-      <motion.nav className={styles.links} aria-label="Дальше" {...cardReveal(prefersReducedMotion, 5)}>
+      <motion.nav className={styles.links} aria-label="Дальше" {...cardReveal(prefersReducedMotion, 3)}>
         <Link className={styles.link} to="/">
           Смотреть видео
         </Link>
@@ -106,6 +64,6 @@ export function AboutPage() {
           Цены
         </Link>
       </motion.nav>
-    </div>
+    </motion.div>
   )
 }

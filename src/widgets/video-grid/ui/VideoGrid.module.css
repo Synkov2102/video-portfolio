@@ -159,11 +159,22 @@
   background-color: #10100e;
 }
 
+.modalBar {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-height: 48px;
+  padding: max(6px, env(safe-area-inset-top)) 8px 6px 12px;
+  padding-right: max(8px, env(safe-area-inset-right));
+  background-color: #10100e;
+}
+
+.modalBarFull {
+  background-color: #070706;
+}
+
 .close {
-  position: absolute;
-  z-index: 2;
-  top: max(8px, env(safe-area-inset-top));
-  right: max(8px, env(safe-area-inset-right));
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -216,6 +227,8 @@
 
 .playerWrap {
   position: relative;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   margin-left: auto;
   margin-right: auto;
@@ -226,8 +239,6 @@
 .playerWrapFull {
   flex: 1;
   min-height: 0;
-  display: flex;
-  flex-direction: column;
   border-radius: 0;
   box-shadow: none;
 }

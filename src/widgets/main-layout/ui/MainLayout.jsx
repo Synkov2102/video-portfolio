@@ -1,5 +1,6 @@
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { Link, Outlet, useLocation } from 'react-router-dom'
+import logoUrl from '@/assets/logo.svg'
 import { pageTransition } from '@/shared/lib/motionPresets'
 import { ScrollProgress } from '@/widgets/scroll-progress'
 import styles from './MainLayout.module.css'
@@ -21,8 +22,9 @@ export function MainLayout() {
       <header className={styles.header}>
         <div className={styles.headerInner}>
           <div className={styles.headerRow}>
-            <Link className={styles.logo} to="/">
-              Видеограф СПБ
+            <Link className={styles.logo} to="/" aria-label="Видеограф СПБ — на главную">
+              <img src={logoUrl} alt="" className={styles.logoImg} width={40} height={40} />
+              <span className={styles.logoText}>Видеограф СПБ</span>
             </Link>
             <nav className={styles.nav} aria-label="Основное меню">
               {nav.map((item) => {
