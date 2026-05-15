@@ -1,0 +1,11 @@
+.root {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 1250;
+  transform-origin: 0 50%;
+  background: rgba(30, 28, 24, 0.22);
+  pointer-events: none;
+}

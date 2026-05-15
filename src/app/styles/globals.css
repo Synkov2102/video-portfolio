@@ -1,0 +1,25 @@
+:root {
+  --color-text: #1e1c18;
+  --color-text-muted: #6b655c;
+  --color-secondary: #a3845b;
+  --color-bg: #f2efe8;
+  --color-paper: #fbf8f2;
+  --color-divider: rgba(30, 28, 24, 0.08);
+  --color-black: #000;
+  --font-sans: 'Manrope', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Cormorant Garamond', 'Times New Roman', serif;
+  --ease-lux: cubic-bezier(0.22, 1, 0.36, 1);
+  --container-max: 1200px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-sans);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}

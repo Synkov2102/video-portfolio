@@ -1,0 +1,10 @@
+# На VPS: скопируйте в VPS_APP_DIR вместе с .env
+# IMAGE=ghcr.io/synkov2102/video-portfolio:latest
+
+services:
+  web:
+    image: ${IMAGE:?set IMAGE in .env, e.g. ghcr.io/owner/portfolio:latest}
+    container_name: portfolio
+    restart: unless-stopped
+    ports:
+      - "${HOST_PORT:-8050}:80"

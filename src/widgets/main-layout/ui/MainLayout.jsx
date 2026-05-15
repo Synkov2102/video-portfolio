@@ -1,0 +1,72 @@
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
+import { Link, Outlet, useLocation } from 'react-router-dom'
+import { pageTransition } from '@/shared/lib/motionPresets'
+import { ScrollProgress } from '@/widgets/scroll-progress'
+import styles from './MainLayout.module.css'
+
+const nav = [
+  { label: 'Видео', to: '/' },
+  { label: 'Обо мне', to: '/about' },
+  { label: 'Цены', to: '/prices' },
+]
+
+export function MainLayout() {
+  const { pathname } = useLocation()
+  const prefersReducedMotion = useReducedMotion()
+  const pageVariants = pageTransition(prefersReducedMotion)
+
+  return (
+    <div className={styles.root}>
+      <ScrollProgress />
+      <header className={styles.header}>
+        <div className={styles.headerInner}>
+          <div className={styles.headerRow}>
+            <Link className={styles.logo} to="/">
+              Видеограф СПБ
+            </Link>
+            <nav className={styles.nav} aria-label="Основное меню">
+              {nav.map((item) => {
+                const active = pathname === item.to
+                return (
+                  <Link
+                    key={item.label}
+                    to={item.to}
+                    className={`${styles.navLink} ${active ? styles.navLinkActive : ''}`}
+                  >
+                    {item.label}
+                  </Link>
+                )
+              })}
+            </nav>
+          </div>
+        </div>
+      </header>
+
+      <main className={styles.main}>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={pathname}
+            variants={pageVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            style={{ width: '100%' }}
+          >
+            <Outlet />
+          </motion.div>
+        </AnimatePresence>
+      </main>
+
+      <footer className={styles.footer}>
+        <div className={styles.footerInner}>
+          <div className={styles.footerRow}>
+            <span className={styles.footerCaption}>Видео</span>
+            <span className={`${styles.footerCaption} ${styles.footerYear}`}>
+              © {new Date().getFullYear()}
+            </span>
+          </div>
+        </div>
+      </footer>
+    </div>
+  )
+}

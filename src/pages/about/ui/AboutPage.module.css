@@ -1,0 +1,219 @@
+.page {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 28px max(16px, env(safe-area-inset-left)) 56px max(16px, env(safe-area-inset-right));
+}
+
+@media (min-width: 900px) {
+  .page {
+    padding: 52px max(20px, env(safe-area-inset-left)) 88px max(20px, env(safe-area-inset-right));
+  }
+}
+
+.hero {
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto 24px;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    margin-bottom: 40px;
+  }
+}
+
+.kicker {
+  display: block;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  margin-bottom: 10px;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: clamp(1.85rem, 4.5vw, 2.5rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+}
+
+.opening {
+  max-width: 38rem;
+  margin: 0 auto 28px;
+}
+
+@media (min-width: 768px) {
+  .opening {
+    margin-bottom: 36px;
+  }
+}
+
+.openingText {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: clamp(1.15rem, 2.4vw, 1.45rem);
+  font-weight: 500;
+  line-height: 1.55;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+}
+
+.flow {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  max-width: 34rem;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .flow {
+    gap: 26px;
+  }
+}
+
+.block {
+  margin: 0;
+}
+
+.prose {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--color-text-muted);
+}
+
+.gear {
+  padding: 22px 20px 24px;
+  background: linear-gradient(145deg, rgba(251, 248, 242, 0.98) 0%, rgba(242, 238, 232, 0.92) 100%);
+  border: 1px solid var(--color-divider);
+  box-shadow: 0 18px 40px -28px rgba(30, 28, 24, 0.1);
+}
+
+@media (min-width: 600px) {
+  .gear {
+    padding: 26px 28px 28px;
+  }
+}
+
+.gearLabels {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.gearPill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 5.5rem;
+  padding: 8px 14px;
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  background-color: var(--color-paper);
+  border: 1px solid rgba(163, 132, 91, 0.28);
+  box-shadow: 0 8px 20px -12px rgba(30, 28, 24, 0.12);
+}
+
+.gearPlus {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--color-secondary);
+  line-height: 1;
+  opacity: 0.85;
+}
+
+.gearText {
+  margin: 0;
+  text-align: center;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--color-text-muted);
+}
+
+.closing {
+  margin-top: 4px;
+  padding: 22px 20px 24px;
+  border-left: 3px solid var(--color-secondary);
+  background-color: rgba(163, 132, 91, 0.07);
+}
+
+.closingText {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: clamp(1.05rem, 2.1vw, 1.25rem);
+  font-weight: 500;
+  font-style: italic;
+  line-height: 1.55;
+  color: var(--color-text);
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 32px;
+  padding-top: 4px;
+}
+
+@media (min-width: 900px) {
+  .links {
+    margin-top: 40px;
+    padding-top: 8px;
+  }
+}
+
+.link,
+.linkSecondary {
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition:
+    color 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 22px;
+  color: var(--color-paper);
+  background-color: var(--color-text);
+}
+
+.link:hover {
+  background-color: #3d3933;
+}
+
+.linkSecondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 22px;
+  color: var(--color-text);
+  box-shadow: inset 0 0 0 1px var(--color-divider);
+}
+
+.linkSecondary:hover {
+  box-shadow: inset 0 0 0 1px rgba(163, 132, 91, 0.45);
+}
