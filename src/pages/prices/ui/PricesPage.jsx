@@ -1,5 +1,6 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { contacts } from "@/shared/config/contacts";
 import { cardReveal, heroItem, heroStagger } from "@/shared/lib/motionPresets";
 import styles from "./PricesPage.module.css";
 
@@ -163,7 +164,7 @@ export function PricesPage() {
         <div className={styles.ctaActions}>
           <a
             className={`${styles.btn} ${styles.btnPrimary}`}
-            href="https://t.me/degty4rev4"
+            href={contacts.telegramUrl}
             target="_blank"
             rel="noopener noreferrer"
           >

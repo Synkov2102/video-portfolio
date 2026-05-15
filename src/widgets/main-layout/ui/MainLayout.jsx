@@ -2,6 +2,7 @@ import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { Link, Outlet, useLocation } from 'react-router-dom'
 import logoUrl from '@/assets/logo.svg'
 import { pageTransition } from '@/shared/lib/motionPresets'
+import { MobileContactBar } from '@/widgets/mobile-contact-bar'
 import { ScrollProgress } from '@/widgets/scroll-progress'
 import styles from './MainLayout.module.css'
 
@@ -69,6 +70,8 @@ export function MainLayout() {
           </div>
         </div>
       </footer>
+
+      <MobileContactBar />
     </div>
   )
 }

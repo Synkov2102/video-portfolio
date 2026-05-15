@@ -4,6 +4,12 @@
   flex-direction: column;
 }
 
+@media (max-width: 599px) {
+  .root {
+    padding-bottom: calc(64px + env(safe-area-inset-bottom, 0px));
+  }
+}
+
 .header {
   position: sticky;
   top: 0;
