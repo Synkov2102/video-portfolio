@@ -1,5 +1,8 @@
 const clipLoaders = import.meta.glob('../../../assets/video/*.webm')
 
+/** Первый ролик в сетке (остальные — по алфавиту). */
+const FIRST_VIDEO = 'karina-i-oleg'
+
 const posterModules = import.meta.glob('../../../assets/video/posters/*.{jpg,jpeg,png,webp}', {
   eager: true,
   import: 'default',
@@ -32,7 +35,13 @@ async function resolveAssetUrl(loader) {
  * `loadSrc` — ленивый импорт: видео скачивается только при открытии плеера.
  */
 export const videos = Object.keys(clipLoaders)
-  .sort((a, b) => a.localeCompare(b))
+  .sort((a, b) => {
+    const stemA = fileStem(a)
+    const stemB = fileStem(b)
+    if (stemA === FIRST_VIDEO) return -1
+    if (stemB === FIRST_VIDEO) return 1
+    return a.localeCompare(b)
+  })
   .map((path) => {
     const stem = fileStem(path)
     const loader = clipLoaders[path]
