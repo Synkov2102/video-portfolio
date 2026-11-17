@@ -1,7 +1,8 @@
 const clipLoaders = import.meta.glob('../../../assets/video/*.webm')
 
-/** Первый ролик в сетке (остальные — по алфавиту). */
-const FIRST_VIDEO = 'karina-i-oleg'
+/** Первый и последний ролики в сетке (остальные — по алфавиту). */
+const FIRST_VIDEO = 'anna-i-vladimir'
+const LAST_VIDEO = 'karina-i-oleg'
 
 const posterModules = import.meta.glob('../../../assets/video/posters/*.{jpg,jpeg,png,webp}', {
   eager: true,
@@ -40,6 +41,8 @@ export const videos = Object.keys(clipLoaders)
     const stemB = fileStem(b)
     if (stemA === FIRST_VIDEO) return -1
     if (stemB === FIRST_VIDEO) return 1
+    if (stemA === LAST_VIDEO) return 1
+    if (stemB === LAST_VIDEO) return -1
     return a.localeCompare(b)
   })
   .map((path) => {
